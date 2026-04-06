@@ -38,7 +38,6 @@ echo "PhpMyAdmin is now running"
 folderPath="/home/danny/projects/"
 classification="$1"
 classPath="${folderPath}${classification}"
-	#	echo $classPath
 
 sleep 1
 
@@ -64,20 +63,17 @@ echo "Initializing session..."
 
 sleep 2
 
-
 tmuxCreate(){
 	tmux new-session -d -s dev -c "$projPath"
 }
 
 tmuxSplitHori(){
-	# horizontal split
 	tmux split-window -h -c "$projPath"
 }
 
 tmuxToFirstPane(){
 	tmux select-pane -t 0
 }
-
 
 gitIniChecker(){	
 	if [ -d "$projPath/.git" ]; then
@@ -108,8 +104,6 @@ tmuxRightPane2(){
 tmuxAttach(){
 	tmux attach -t dev
 }
-
-# main
 
 tmuxPreset="$3"
 runTmuxPreset(){
